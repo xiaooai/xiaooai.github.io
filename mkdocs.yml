@@ -1,0 +1,11 @@
+site_name: MkLorum
+nav:
+  - Home: index.md
+  - About: about.md
+  - Homework: 数值分析作业-ex2.md
+  
+theme: 
+  name: material
+  
+
+
