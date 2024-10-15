@@ -1,0 +1,1042 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>Bomb Lab 总结 - SHAN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a676eddb.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bomb-lab" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="">
+    <a href=".." title="SHAN" class="md-header-nav__button md-logo" aria-label="SHAN">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SHAN
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Bomb Lab 总结
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../about/" class="md-tabs__link md-tabs__link--active">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../数值分析作业/说明.md" class="md-tabs__link">
+          数值分析作业
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SHAN" class="md-nav__button md-logo" aria-label="SHAN">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    SHAN
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../github%20page%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95/" title="github page创建指南" class="md-nav__link">
+      github page创建指南
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Bomb Lab 总结
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Bomb Lab 总结" class="md-nav__link md-nav__link--active">
+      Bomb Lab 总结
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    解题前的准备
+  </a>
+  
+    <nav class="md-nav" aria-label="解题前的准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    汇编代码指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gdb" class="md-nav__link">
+    gdb调试命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    其他常用指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    安全化炸弹
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_1" class="md-nav__link">
+    phase_1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_2" class="md-nav__link">
+    phase_2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_3" class="md-nav__link">
+    phase_3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_4" class="md-nav__link">
+    phase_4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_5" class="md-nav__link">
+    phase_5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_6" class="md-nav__link">
+    phase_6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      数值分析作业
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="数值分析作业" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        数值分析作业
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../数值分析作业/说明.md" title="说明" class="md-nav__link">
+      说明
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%BD%9C%E4%B8%9A/np2ex.pdf" title="第2次作业题目" class="md-nav__link">
+      第2次作业题目
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%BD%9C%E4%B8%9A/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%BD%9C%E4%B8%9A-ex2/" title="第2次作业解答" class="md-nav__link">
+      第2次作业解答
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%BD%9C%E4%B8%9A/np2ex-1.pdf" title="第3次作业题目" class="md-nav__link">
+      第3次作业题目
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    解题前的准备
+  </a>
+  
+    <nav class="md-nav" aria-label="解题前的准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    汇编代码指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gdb" class="md-nav__link">
+    gdb调试命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    其他常用指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    安全化炸弹
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_1" class="md-nav__link">
+    phase_1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_2" class="md-nav__link">
+    phase_2
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_3" class="md-nav__link">
+    phase_3
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_4" class="md-nav__link">
+    phase_4
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_5" class="md-nav__link">
+    phase_5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase_6" class="md-nav__link">
+    phase_6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="bomb-lab">bomb lab</h1>
+<p>bomb lab总共有六个小部分，最后完成后程序会提示如下：</p>
+<pre><code>Phase 1 defused. How about the next one?
+That's number 2.  Keep going!
+Halfway there!
+So you got that one.  Try this one.
+Good work!  On to the next...
+Congratulations! You've defused the bomb!
+</code></pre>
+<p>每个实验的程序都会有所不同，但基本的逻辑都是不变的，本例中的各个小部分的答案如下：</p>
+<pre><code>Border relations with Canada have never been better.
+1 2 4 8 16 32
+3 256
+7 0
+ionefg
+4 3 2 1 6 5
+</code></pre>
+<p>下面对解题前的准备和每一个phase的解答，进行说明</p>
+<h2 id="_1">解题前的准备</h2>
+<h3 id="_2">汇编代码指令</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>解释</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shr</code></td>
+<td>shift right右移</td>
+<td><code>shr   $0x1f,%ecx</code></td>
+</tr>
+<tr>
+<td><code>lea</code></td>
+<td>加载地址</td>
+<td>将对应的地址加载到寄存器中</td>
+</tr>
+<tr>
+<td><code>cmpl</code></td>
+<td>比较两个操作数，设置标志寄存器，即第二个操作数减去第一个操作数</td>
+<td>常用来与条件跳转指令一起使用（jne，je）</td>
+</tr>
+<tr>
+<td><code>ja</code></td>
+<td>jump if above 大于时跳转</td>
+<td>与判断指令进行配合，决定是否跳转</td>
+</tr>
+<tr>
+<td><code>jge</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>jne</code></td>
+<td>jump if not equal 如果不相等则跳转，相等时则执行后面的指令</td>
+<td>与判断指令进行配合，决定是否跳转</td>
+</tr>
+<tr>
+<td><code>jbe</code></td>
+<td>第一个数小于等于第二数进行跳转</td>
+<td></td>
+</tr>
+<tr>
+<td><code>jmp</code></td>
+<td>无条件跳转命令，程序直接跳转到指定的标签，无需判断条件</td>
+<td>常用于循环、条件或函数调用的实现</td>
+</tr>
+<tr>
+<td><code>jg</code></td>
+<td>jump if greater 如果大于则跳转</td>
+<td>条件跳转</td>
+</tr>
+<tr>
+<td><code>cltq</code></td>
+<td>符号扩展，将<code>eax</code>扩展为<code>rax</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>取and与操作，判断<code>`eax</code>是否为零，即函数的返回值是否为0       | <code>test %eax, %eax</code>  ; 检查 <code>eax</code> 是否为零  <code>jz   label</code>   ; 如果 <code>eax</code>为零，跳转到 <code>label</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gdb">gdb调试命令</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>名称</th>
+<th>作用</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>break</td>
+<td>指定位置设置断点</td>
+<td><code>b *(phase_1+15)</code></td>
+</tr>
+<tr>
+<td>si</td>
+<td>stepi</td>
+<td>执行当前指令，如果是函数调用，则进入函数</td>
+<td><code>si</code></td>
+</tr>
+<tr>
+<td>c</td>
+<td>cont</td>
+<td>从当前位置执行程序，直到下一个断点或程序结束</td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td>p</td>
+<td>print</td>
+<td>打印变量的值</td>
+<td><code>p/s $rax</code></td>
+</tr>
+<tr>
+<td>x</td>
+<td></td>
+<td>打印内存中的值</td>
+<td><code>x/s 0x402400</code></td>
+</tr>
+<tr>
+<td>finish</td>
+<td></td>
+<td>让程序继续执行，直至当前函数返回为止，返回到函数调用点</td>
+<td><code>finish</code></td>
+</tr>
+<tr>
+<td><code>layout asm</code></td>
+<td></td>
+<td>显示当前程序执行的汇指令</td>
+<td><code>layout asm</code></td>
+</tr>
+<tr>
+<td><code>layout regs</code></td>
+<td></td>
+<td>显示程序当前的寄存器存储的值</td>
+<td><code>layout regs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">其他常用指令</h3>
+<pre><code class="language-cmd">objdump -d bomb &gt; bomb.asm
+</code></pre>
+<p>该命令将<strong>bomb</strong>可执行文件进行反汇编，并保存到<strong>bomb.asm</strong>文件中，便于查看</p>
+<pre><code class="language-cmd">gdb bomb
+layout asm 
+layout regs
+</code></pre>
+<p>在命令行中输入这些指令，开始运行程序</p>
+<h3 id="_4">安全化炸弹</h3>
+<p>gdb中有一个很实用的功能，可以使用<strong>.gdbinit</strong>文件进行默认的gdb配置，免去反复使用一些指令。</p>
+<p>在命令行中输入以下命令：</p>
+<pre><code class="language-cmd"># 创建当前目录下的 .gdbinit 文件
+touch .gdbinit
+# 创建 .config/gdb 文件夹
+mkdir -p ~/.config/gdb
+# 允许 gdb 预加载根目录下所有的文件
+echo &quot;set auto-load safe-path /&quot; &gt; ~/.config/gdb/gdbinit
+</code></pre>
+<p>打开<strong>.gdbinit</strong>文件，输入以下内容。其中注意，不同的电脑，反汇编程序顺序不同，因此设置断点时，需要根据反汇编程序文件，进行设置，主要是有<strong>相加指令</strong>的部分</p>
+<pre><code class="language-cmd"># ./gdbinit
+# 设置默认文件输入，这样我们不必每次手动输入答案
+set args psol.txt
+
+# 可以为 explode_bomb 函数设置断点，这样我们就可以在爆炸之前打断程序的执行
+# 但是由于其会打印输出信息，所以后面有更具有针对性的设置，跳过信息发送函数
+# 所以这里就不再设置断点了
+# b explode_bomb
+
+# 为各个 phase 函数设置断点，用以观察其执行过程
+# 如果你做完了某个 phase，可以将其注释掉，这样就不会再进入该 phase 了
+b phase_1
+# b phase_2
+# b phase_3
+# b phase_4
+# b phase_5
+# b phase_6
+
+# 为校验函数设置断点
+b phase_defused  # 此处地址为 0x4015c4
+# 为此断点编程
+command
+# 直接跳到返回语句处，跳过校验流程
+jump *(phase_defused + 0x94)   #ret命令的地址为 0x401658
+end
+
+
+# 以下代码务必保留!!!
+
+# 为 explode_bomb 中触发 send_msg 函数的地方设置断点
+# b *(explode_bomb + 0x44)
+b *(explode_bomb)
+
+# 为此断点编程
+command
+# 直接跳到 exit 退出函数处，跳过发送信息流程
+j *(explode_bomb + 0x1d)
+end
+
+# 炸弹已经安全化，可以放心地拆弹了，开始运行程序
+r
+</code></pre>
+<h2 id="phase_1">phase_1</h2>
+<p>这一题比较简单，程序的主要逻辑如下所示：</p>
+<ul>
+<li>判断输入的字符串与程序内设定的字符串是否相等</li>
+</ul>
+<p>解决方法：</p>
+<ul>
+<li>在<code>call &lt;strings not equal&gt;</code>语句后设置断点</li>
+<li>利用gdb显示出寄存器<code>rsi</code>的内容</li>
+</ul>
+<p>命令行代码如下：</p>
+<pre><code class="language-cmd">b *(phase_1+9)
+c
+x/s $rsi
+</code></pre>
+<p>输出结果为：</p>
+<pre><code>Border relations with Canada have never been better.
+</code></pre>
+<p>将该句话，保存在psol.txt文件的第一行中即可。</p>
+<p>再次运行程序：</p>
+<pre><code class="language-cmd">gdb bomb
+c
+</code></pre>
+<p>程序返回：</p>
+<pre><code>Phase 1 defused. How about the next one?
+</code></pre>
+<p>此时，phase_1顺利结束。</p>
+<h2 id="phase_2">phase_2</h2>
+<p>程序的主要逻辑为</p>
+<ul>
+<li>函数的输入为6个数字</li>
+<li>程序的第一个输入为1</li>
+<li>后面的每一个数字都是前一个数的两倍</li>
+</ul>
+<p>因此，该题的解题答案为：</p>
+<pre><code class="language-cmd">1 2 4 8 16 32
+</code></pre>
+<p>将上面的数字粘贴到psol.txt的第二行，再次运行程序</p>
+<pre><code class="language-cmd">gdb bomb
+c
+</code></pre>
+<p>程序输出结果为：</p>
+<pre><code>That's number 2.  Keep going!
+</code></pre>
+<p>此时，第二题顺利结束</p>
+<h2 id="phase_3">phase_3</h2>
+<p>程序的主要逻辑为</p>
+<ul>
+<li>函数格式化读取某些参数，即<code>sscanf</code>函数，可通过寄存器的值查看输入参数的要求</li>
+<li>要求第一个参数，需要小于7</li>
+<li>根据输入的参数，会跳转到不同的命令语句，复制不同的立即数到寄存器</li>
+<li>要求输入的第二个数值和寄存器中的数值相等</li>
+</ul>
+<p>解题思路：</p>
+<ul>
+<li>第一个参数的输入，会影响第二个参数的值</li>
+<li>首先令第一个参数的值小于7</li>
+<li>在最后的比较是否相等的命令中，设置断点，查看需要比较的值</li>
+</ul>
+<p>程序解答效果：</p>
+<p>首先我们需要给定一个假设的值，假如设置初始值为<code>3 256</code></p>
+<pre><code class="language-cmd"># 设置断点
+b *(phase_3+19)
+x/s $rsi
+</code></pre>
+<p>程序的运行结果为：</p>
+<pre><code class="language-cmd">0x4025cf:       &quot;%d %d&quot;
+</code></pre>
+<p>说明输入的为两个整数参数，继续运行程序</p>
+<pre><code class="language-cmd">#设置断点
+b *(phase_3+123)
+p $rax
+</code></pre>
+<p>得到程序的输出结果为</p>
+<pre><code class="language-cmd">256
+</code></pre>
+<p>因此，得到本题的答案为<code>3 256</code>。当然根据输入的第一个值不同，也可以会有其他的答案，比如尝试过<code>1 311</code>也是可以的。将结果添加到<strong>psol.txt</strong>文件中，运行程序效果如下：</p>
+<pre><code class="language-cmd">gdb bomb
+c
+</code></pre>
+<p>得到运行结果如下：</p>
+<pre><code class="language-cmd">Halfway there!
+</code></pre>
+<p>至此，phase_3已经顺利结束！</p>
+<h2 id="phase_4">phase_4</h2>
+<p>程序的主要逻辑为：</p>
+<ul>
+<li>格式化读取参数，通过输出编译器的值可以知道需要输入的参数类型</li>
+<li>第一个参数有一个判断，需要小于等于<code>0xe</code>，即输入数小于等于14</li>
+<li>之后是调用了一个函数，func4，所以需要弄清楚func4的逻辑，同时需要满足函数结束时，<code>eax</code>返回值为0</li>
+<li>比较第二个参数是否为0</li>
+<li>func4的逻辑说明如下</li>
+<li>函数内有两个跳转命令，一个<code>jle</code>和一个<code>jge</code>，而且两次比较的内容都是<code>edi</code>和<code>ecx</code>的大小，即第一个跳转要求<code>ecx</code>小于等于<code>edi</code>，第二个跳转要求<code>ecx</code>大于等于edi，因此唯一的解决方案是两个都相等又由于<code>edi</code>的值不发生变化为输入的第一个参数，<code>ecx</code>的值为14，经过右移后，变为7，因此为了保证<code>eax</code>为0，即第一次循环就跳出，可得edi为7，即输入的第一个参数为7</li>
+</ul>
+<p>因此得到该题的结果为<code>7 0</code>，将结果放入<strong>psol.txt</strong>文件中，运行程序的效果如下：</p>
+<pre><code class="language-cmd">gdb bomb
+c
+</code></pre>
+<p>程序输出的结果如下：</p>
+<pre><code>So you got that one.  Try this one.
+</code></pre>
+<p>到这里，phase_4顺利完成！</p>
+<h2 id="phase_5">phase_5</h2>
+<p>程序逻辑说明：</p>
+<ul>
+<li>首先判断输入的参数值为，字符长度为6的字符串</li>
+<li>通过最后的比较相等的指令，可以得到最终需要凑出的字符串，即最终得到的字符串为<code>"flyers"</code></li>
+<li>到中间的函数处理的步骤，了解到是通过字符串的值，对应到指定字符某一个位置的字母，即输入的为b，二进制为0110 0010, 则处理过程中，将前四位去掉，得到0010，即指定字符串<code>"maduiersnfotvbylso you think you can stop the bomb with ctrl-c, do you?"</code>中的第三个字母，即<code>d</code>,根据以上方法，得到剩余的字符串</li>
+<li>将前四位去掉的原因，是其中有一个<code>and</code>指令，抹去前四位</li>
+<li>f 为第10位，减去1后，因为计算从零开始计数，则为0x1001，则为i </li>
+<li>l为第16为，减去1后，则为0x1111，则为o</li>
+<li>y为第15位，减去1后，则为0x1110，则为n</li>
+<li>e为第6位，减去1后，则为0x0101，则为e</li>
+<li>r 为第7位，减去1后，则为0x0110，则为f</li>
+<li>s 为第8位，减去1后，则为0x0100，则为g</li>
+<li>所以结果为<code>ionefg</code></li>
+</ul>
+<p>程序运行结果说明：</p>
+<pre><code>b *(phase_5+62)
+c
+x/s $edx
+</code></pre>
+<p>程序输出为</p>
+<pre><code>&quot;maduiersnfotvbylso you think you can stop the bomb with ctrl-c, do you?&quot;
+</code></pre>
+<p>这是我们需要从这段话中，选出需要挑选的字母，与flyers对应，如f为第10位，就需要0x1001，即i</p>
+<pre><code class="language-cmd">b *(phase_5+81)
+c
+x/s $rsi
+</code></pre>
+<p>此时程序输出的结果为：</p>
+<pre><code>&quot;flyers&quot;
+</code></pre>
+<p>这个时我们最终需要比对的字符，通过上面的分析，可以得到该题目的结果位<code>ionefg</code> ,添加到psol.txt文件中，运行程序的效果如下：</p>
+<pre><code>Good work!  On to the next...
+</code></pre>
+<h2 id="phase_6">phase_6</h2>
+<p>第6个题目稍微有点长，基本逻辑说明如下：</p>
+<ul>
+<li>函数初始化和栈空间分配</li>
+<li>读取用户输入的6个数字，并验证，需要满足6个数字都在0和6之间</li>
+<li>验证是否重复，需保证所有的输入数字不能重复</li>
+<li>创建初始链表，包括节点值和下一个指针</li>
+<li>根据输入的顺序调整链表中节点的顺序，即如果是3 1 2的话，表示将原始链表中的第三个节点放在开头的位置，接下来node1，node2。其中需要注意，在处理的过程中，每个数均与7进行相减，即7-输入数的值为最终的调整链表的顺序数字</li>
+<li>验证调整后的链表中的数据是否按照降序排列</li>
+</ul>
+<p>程序运行如下：</p>
+<p>首先查看创建的原始链表中各个节点的信息</p>
+<pre><code class="language-cmd">b *(phase_6+143)
+c
+x/24 $rdx
+</code></pre>
+<p><img alt="image-20241015204241285" src="../img/image-20241015132216143.png" /></p>
+<p>可以得出，如果需要将最终的节点按照降序排列，则需要调整的顺序为<code>3 4 5 6 1 2</code>，，注意与7的运算，因此本题的结果为<code>4 3 2 1 6 5</code>，输入到<strong>psol.txt</strong>文件中，可以得到最后调整后的节点信息，如下所示</p>
+<pre><code class="language-cmd">b *(phase_6+183)
+c
+x/6gx $rsp+0x20
+</code></pre>
+<p><img alt="image-20241015204348183" src="../img/image-20241015132811778.png" /></p>
+<p>满足从大到小的降序排列要求，因此本题目的结果为<code>4 3 2 1 6 5</code>，运行程序效果如下：</p>
+<pre><code>Congratulations! You've defused the bomb!
+</code></pre>
+<p><strong>恭喜！已经完成bomb lab的全部部分！</strong></p>
+<h2 id="_5">参考资料</h2>
+<p>Arthals在北大计算机系统导论（ICS）课程中所做的详尽笔记：<a href="https://arthals.ink/blog/bomb-lab">Bomb Lab</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="">
+        
+          <a href="../github%20page%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95/" title="github page创建指南" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                github page创建指南
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90%E4%BD%9C%E4%B8%9A/np2ex.pdf" title="第2次作业题目" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                第2次作业题目
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["navigation.expand", "tabs"],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
