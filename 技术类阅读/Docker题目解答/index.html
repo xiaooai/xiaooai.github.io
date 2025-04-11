@@ -1,0 +1,1112 @@
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>《Docker技术》 - SHAN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="">
+    <a href="../.." title="SHAN" class="md-header-nav__button md-logo" aria-label="SHAN">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SHAN
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              《Docker技术》
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../about/" class="md-tabs__link">
+          Home
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          技术类阅读
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%98%85%E8%AF%BB/" class="md-tabs__link">
+          非技术类阅读
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SHAN" class="md-nav__button md-logo" aria-label="SHAN">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    SHAN
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Home
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Home" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Home
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../github%20page%20creation%20guide/" title="Github Page Creation Guide" class="md-nav__link">
+      Github Page Creation Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../bomb%20lab/" title="Bomb Lab Summary" class="md-nav__link">
+      Bomb Lab Summary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../week9/" title="Assignment-shan" class="md-nav__link">
+      Assignment-shan
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../999/" title="Assignment-xinyi" class="md-nav__link">
+      Assignment-xinyi
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      技术类阅读
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="技术类阅读" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        技术类阅读
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DeepLearning/" title="《动手学深度学习》" class="md-nav__link">
+      《动手学深度学习》
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Java%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" title="《Java高并发秒杀项目》" class="md-nav__link">
+      《Java高并发秒杀项目》
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="《Docker技术》" class="md-nav__link md-nav__link--active">
+      《Docker技术》
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../TODO.html" title="TODO" class="md-nav__link">
+      TODO
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      非技术类阅读
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="非技术类阅读" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        非技术类阅读
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%98%85%E8%AF%BB/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%98%85%E8%AF%BB/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8/" title="《穷查理宝典》" class="md-nav__link">
+      《穷查理宝典》
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%98%85%E8%AF%BB/%E5%AF%8C%E7%88%B8%E7%88%B8%E7%A9%B7%E7%88%B8%E7%88%B8/" title="《富爸爸穷爸爸》" class="md-nav__link">
+      《富爸爸穷爸爸》
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%98%85%E8%AF%BB/%E7%94%B7%E4%BA%BA%E6%9D%A5%E8%87%AA%E7%81%AB%E6%98%9F%EF%BC%8C%E5%A5%B3%E4%BA%BA%E6%9D%A5%E8%87%AA%E9%87%91%E6%98%9F/" title="《男人来自火星，女人来自金星》" class="md-nav__link">
+      《男人来自火星，女人来自金星》
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%98%85%E8%AF%BB/%E5%92%8C%E7%8F%85%EF%BC%9A%E5%B8%9D%E7%8E%8B%E5%BF%83%E8%85%B9/" title="《和珅：帝王心腹》" class="md-nav__link">
+      《和珅：帝王心腹》
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="docker">Docker练习题目解答</h1>
+<h1 id="1-hello-world">练习1 Hello World &amp; 基本命令</h1>
+<ol>
+<li>运行<code>docker pull hello-world</code> ，输出结果如下：</li>
+</ol>
+<pre><code class="language-cmd">Using default tag: latest
+latest: Pulling from library/hello-world
+e6590344b1a5: Pull complete 
+Digest: sha256:fc08e727181e2668370f47db6319815c279ed887e2f01be96b94106bc2781430
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+</code></pre>
+<ol>
+<li>运行<code>docker run hello-world</code> ，输出结果如下：</li>
+</ol>
+<pre><code class="language-cmd">Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
+<ol>
+<li>运行命令<code>docker ps -a</code> ，查看容器状态。输出如下：</li>
+</ol>
+<pre><code class="language-cmd">CONTAINER ID   IMAGE         COMMAND    CREATED         STATUS                     PORTS     NAMES
+aa80097f567f   hello-world   &quot;/hello&quot;   3 minutes ago   Exited (0) 3 minutes ago             busy_jackson
+</code></pre>
+<ol>
+<li>运行命令 <code>docker logs aa80097f567f</code> 查看日志。输出如下：</li>
+</ol>
+<pre><code class="language-cmd">Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+</code></pre>
+<ol>
+<li>运行命令<code>docker stop/rm aa80097f567f</code> 停止/删除容器。输出如下：</li>
+</ol>
+<pre><code class="language-shell">aa80097f567f/aa80097f567f
+</code></pre>
+<p><strong>任务一完成！</strong></p>
+<h1 id="2-nginx">练习2. Nginx网站容器</h1>
+<ol>
+<li>
+<h6 id="nginx">运行Nginx容器：</h6>
+</li>
+</ol>
+<pre><code>docker run -d -p 8080:80 --name mynginx nginx
+</code></pre>
+<ul>
+<li>-d : 表示后台运行</li>
+<li>-p 8080:80 ：表示将主机的8080端口映射到容器的80端口</li>
+<li>访问 localhost:8080 显示默认界面</li>
+</ul>
+<p>问题：访问http://123.60.84.41:8080/ 失败。</p>
+<p>原因：</p>
+<ul>
+<li>检查华为云安全组规则，放行8080端口</li>
+</ul>
+<p>此时顺利访问成功！</p>
+<ol>
+<li>
+<h6 id="_1">进入容器直接修改默认界面</h6>
+</li>
+<li>
+<p>进入容器终端 <code>docker exec -it mynginx /bin/bash</code></p>
+</li>
+<li>修改默认界面：<code>echo "Hello from container!" &gt; /usr/share/nginx/html/index.html</code></li>
+<li>验证修改：浏览器刷新，显示自定义内容。</li>
+<li>
+<p>修改成功！</p>
+</li>
+<li>
+<h6 id="2-bind-mount">方式2 使用Bind Mount挂载本地文件</h6>
+</li>
+<li>
+<p>准备本地的HTML文件</p>
+<p><code>cmd
+  mkdir ~/nginx-custom-html
+  echo "Hello from host!" &gt; ~/nginx-custom-html/index.html</code></p>
+</li>
+<li>
+<p>启动容器，并使用<code>--mount</code>挂载本地目录</p>
+<p><code>cmd
+  docker run -d -p 8081:80 --name mynginx-mount \
+    --mount type=bind,source=$HOME/nginx-custom-html,target=/usr/share/nginx/html nginx</code></p>
+<ul>
+<li><code>type=bind</code>：使用绑定挂载Bind Mount，将主机上的目录挂载到容器中。</li>
+<li><code>source=$HOME/nginx-custom-html</code> :主机上的目录路径作为源目录</li>
+<li><code>target=/usr/share/nginx/html nginx</code> 容器内的目标路径，默认的静态文件放置路径</li>
+</ul>
+</li>
+<li>
+<p>访问http://localhost:8081 验证结果</p>
+</li>
+<li>成功挂载本地文件！</li>
+</ol>
+<p><strong>任务二完成！</strong></p>
+<h1 id="3-mysql">练习3.持久化 MySQL 数据库</h1>
+<ol>
+<li>
+<h6 id="mysql">启动MySQL容器并挂载数据卷</h6>
+</li>
+</ol>
+<pre><code class="language-bash">docker run --name mysql-db -e MYSQL_ROOT_PASSWORD=123456 -v mysql_data:/var/lib/mysql -d mysql:8.0
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li>-e : 表示设置容器内的环境变量（MySQL官方要求强制设置MYSQL_ROOT_PASSWORD）</li>
+<li>-v ：将Docker卷中的<code>mysql_data</code>挂载到容器内的 <code>/var/lib/mysql</code> 目录。</li>
+<li>MySQL 默认将数据写入 <code>var/lib/mysql</code>目录，存储在主机的<code>`mysql_data</code>中</li>
+<li><code>mysql_data</code>的默认地址：<code>/var/lib/docker/volumes/</code></li>
+<li>可以通过<code>cd</code> 命令查看</li>
+<li>
+<p>成功创建！</p>
+</li>
+<li>
+<h6 id="_2">进入容器，并创建数据库及表</h6>
+</li>
+<li>
+<p>执行命令进入MySQL命令行<code>docker exec -it mysql-db mysql -uroot -p123456</code></p>
+<ul>
+<li>说明： <code>mysql -uroot -p123456</code> 是在容器内执行的命令。</li>
+</ul>
+</li>
+<li>
+<p>在MySQL中执行SQL语句</p>
+<p><code>sql
+  CREATE DATABASE testdb;
+  USE testdb;
+  CREATE TABLE example (id INT PRIMARY KEY, data VARCHAR(50));
+  INSERT INTO example VALUES (1, 'Persisted Data')</code></p>
+<p>命令解释：</p>
+<ul>
+<li><code>CREATE DATABASE testdb;</code> : 创建一个名为<code>testdb</code>的新数据库</li>
+<li><code>USE testdb;</code> : 切换到数据库目录</li>
+<li><code>CREATE TABLE example (id INT PRIMARY KEY, data VARCHAR(50));</code> ： 创建example 表，包含两列。一列为id，int类型，设为主键；另一列为data，可变字符最多50个</li>
+<li>向example表中插入一行数据。id为1，data字段为'Persisted Data'</li>
+</ul>
+</li>
+<li>
+<h6 id="_3">删除容器并重新挂载数据卷</h6>
+</li>
+<li>
+<p>停止并删除原容器 <code>docker stop mysql-db</code>  <code>docker rm mysql-db</code></p>
+</li>
+<li>
+<p>重新启动原容器并挂载数据卷 <code>docker run --name mysql-db-new -e MYSQL_ROOT_PASSWORD=123456 -v mysql_data:/var/lib/mysql -d mysql:8.0</code></p>
+<ul>
+<li>说明：新的镜像名称 <code>mysql-db-new</code></li>
+</ul>
+</li>
+<li>
+<h6 id="_4">验证数据持久化</h6>
+</li>
+<li>
+<p>进入到数据库： <code>docker exec -it mysql-db-new mysql -uroot -p123456 "</code></p>
+</li>
+<li>
+<p>查看数据库信息 ：<code>SHOW DATABASES;</code> 输出如下：</p>
+<p><code>bash
+  +--------------------+
+  | Database           |
+  +--------------------+
+  | information_schema |
+  | mysql              |
+  | performance_schema |
+  | sys                |
+  | testdb             |
+  +--------------------+
+  5 rows in set (0.01 sec)</code></p>
+</li>
+<li>
+<p>查看<code>testdb</code>中的所有数据： <code>USE testdb; SELECT * FROM example;</code> 。输出如下：</p>
+<p><code>bash
+  +----+----------------+
+  | id | data           |
+  +----+----------------+
+  |  1 | Persisted Data |
+  +----+----------------+
+  1 row in set (0.00 sec)</code></p>
+</li>
+</ul>
+<p><strong>任务3完成！</strong></p>
+<h1 id="4-python-flask">练习4. 自定义 Python Flask 镜像</h1>
+<ol>
+<li>
+<p>了解概念</p>
+</li>
+<li>
+<p>Flask ： 轻量级的Python Web框架，用于快速构建Web应用和API。</p>
+</li>
+<li>
+<p>项目文件结构示意图</p>
+</li>
+</ol>
+<p><code>bash
+   flask-app/
+   ├── Dockerfile
+   ├── requirements.txt
+   └── app.py</code></p>
+<ol>
+<li>构建文件目录</li>
+</ol>
+<p><code>bash
+   mkdir flask-docker &amp;&amp; cd flask-docker
+   touch Dockerfile app.py requirements.txt</code></p>
+<p>参数解释：</p>
+<ul>
+<li>
+<p><code>touch</code>： 常用于创建空文件</p>
+</li>
+<li>
+<p>编辑app.py的内容</p>
+</li>
+</ul>
+<p>```bash
+   from flask import Flask
+   app = Flask(<strong>name</strong>)</p>
+<p>@app.route('/')
+   def hello_docker():
+       return '<h1>Hello from Docker container!</h1>'</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+       app.run(host='0.0.0.0', port=5000)
+   ```</p>
+<p>代码解释：</p>
+<ul>
+<li><code>app = Flask(__name__)</code> : 创建一个Flask应用实例，<code>__name__</code>  表示当前模块的名称</li>
+<li><code>@app.route('/')</code> : 定义URL路径。装饰器<code>@app.route()</code>将URL与函数绑定。</li>
+<li><code>if __name__ == '__main__':</code>  确保脚本直接运行时才启动服务器。</li>
+<li>
+<p><code>port=5000</code> ：是默认端口</p>
+</li>
+<li>
+<p>编辑 requirements.txt 的内容</p>
+</li>
+</ul>
+<p><code>bash
+   Flask==2.3.2</code></p>
+<p>说明：</p>
+<ul>
+<li>
+<p>pip安装时不区分大小写</p>
+</li>
+<li>
+<p>编写 <code>Dockfile</code> 文件</p>
+</li>
+</ul>
+<p>```dockerfile
+   # 使用轻量级 Python 基础镜像
+   FROM python:3.9-alpine</p>
+<p># 设置工作目录
+   WORKDIR /app</p>
+<p># 复制依赖文件
+   COPY requirements.txt .</p>
+<p># 安装依赖（使用 --no-cache-dir 减少镜像体积）
+   RUN pip install --no-cache-dir -r requirements.txt</p>
+<p># 复制应用代码
+   COPY . .</p>
+<p># 暴露端口
+   EXPOSE 5000</p>
+<p># 启动命令（确保监听所有网络接口）
+   CMD ["python", "app.py"]
+   ```</p>
+<p>说明：</p>
+<ul>
+<li><code>FROM</code> ： 第一个指令，表示基于哪个镜像构建</li>
+<li><code>WORKDIR</code> : 设置工作目录</li>
+<li><code>COPY</code> ： 复制文件到容器中。第一个参数主机，第二个参数容器</li>
+<li><code>RUN</code> : 在容器中执行的命令</li>
+<li><code>EXPOSE</code> : 容器运行时监听的端口</li>
+<li>
+<p><code>CMD</code> : 启动时运行的默认命令</p>
+</li>
+<li>
+<p>构建 Docker 镜像</p>
+</li>
+</ul>
+<p><code>bash
+   docker build -t flask-app .</code></p>
+<ol>
+<li>运行容器</li>
+</ol>
+<p><code>bash
+   docker run -d -p 5000:5000 --name myflask flask-app</code></p>
+<ol>
+<li>验证容器运行</li>
+</ol>
+<p><code>bash
+   docker ps</code></p>
+<ol>
+<li>
+<p>测试API访问</p>
+<p><code>bash
+curl http://localhost:5000</code></p>
+</li>
+<li>
+<p>验证镜像大小</p>
+<p><code>bash
+docker images | grep flask-app</code></p>
+</li>
+</ol>
+<p>​   说明：</p>
+<ul>
+<li><code>grep</code> : 文本搜索工具，按行匹配关键字</li>
+<li>管道符 <code>|</code> : 前一个命令的输出作为下一个命令的输入</li>
+</ul>
+<p><strong>任务4完成！</strong></p>
+<h1 id="5-docker-compose-wordpress">练习5 Docker Compose 编排WordPress</h1>
+<ol>
+<li>
+<p>零基础说明</p>
+</li>
+<li>
+<p>Docker Compose ：容器管理工具，利用简单的YAML文件，来定义和运行多个容器。</p>
+</li>
+<li>WordPress ：流行的博客/网站系统</li>
+<li>
+<p>MySQL：数据库，用于存储WordPress的所有内容</p>
+</li>
+<li>
+<p>安装Docker Compose</p>
+</li>
+</ol>
+<p><code>bash
+   sudo apt install docker-compose-plugin</code></p>
+<p>说明：<code>docker-compose-plugin</code> : 表示插件形式的docker compose</p>
+<ol>
+<li>创建<code>docker-compose.yml</code>文件，编排WordPress和MySQL服务，内容如下：</li>
+</ol>
+<p>```yaml
+   version: '3.8'</p>
+<p>services:
+     wordpress:
+       image: wordpress:latest
+       depends_on:
+         - mysql
+       ports:
+         - "8000:80"
+       environment:
+         WORDPRESS_DB_HOST: mysql
+         WORDPRESS_DB_USER: wordpress
+         WORDPRESS_DB_PASSWORD: wordpress
+         WORDPRESS_DB_NAME: wordpress
+       networks:
+         - wp-network
+       restart: unless-stopped</p>
+<pre><code> mysql:
+   image: mysql:5.7
+   environment:
+     MYSQL_ROOT_PASSWORD: rootpassword
+     MYSQL_DATABASE: wordpress
+     MYSQL_USER: wordpress
+     MYSQL_PASSWORD: wordpress
+   volumes:
+     - mysql_data:/var/lib/mysql
+   networks:
+     - wp-network
+   restart: unless-stopped
+</code></pre>
+<p>volumes:
+     mysql_data:</p>
+<p>networks:
+     wp-network:
+       driver: bridge
+   ```</p>
+<ul>
+<li>说明：</li>
+<li>三大部分：Services定义服务 、 volumes 数据存储位置 、 networks 网络配置</li>
+<li>WordPress服务<ul>
+<li><code>image: wordpress:latest</code> : 使用最新版的WordPress 官方镜像</li>
+<li><code>depends_on</code> : 需要MySQL数据库先启动</li>
+<li><code>port: 8000:80</code> : 端口映射</li>
+<li><code>environment</code> : 设置连接数据库信息</li>
+<li><code>networks</code> : 连接网络，表示服务器可以相互通信</li>
+<li><code>restart</code> : 自动重启，除非手动停止</li>
+</ul>
+</li>
+<li>MySQL数据库服务<ul>
+<li><code>image</code> ： 使用的镜像</li>
+<li><code>environment</code> : 设置数据库的配置，root密码，数据库名称，用户名，密码</li>
+<li><code>volumes</code> : 数据库保存位置</li>
+<li></li>
+</ul>
+</li>
+<li><code>volumes:mysql_data</code> : 定义存储位置，永久存储</li>
+<li>
+<p><code>networks:wp-network</code> : 创建虚拟网络，两者可以相互通信</p>
+</li>
+<li>
+<p>启动服务</p>
+</li>
+</ul>
+<p><code>bash
+   docker compose up -d</code></p>
+<p>说明：</p>
+<ul>
+<li><code>docker compose</code> ：命令</li>
+<li><code>up</code> : 表示启动</li>
+<li>
+<p><code>-d</code> : 表示后台自己运行</p>
+</li>
+<li>
+<p>在浏览器中访问。</p>
+</li>
+</ul>
+<p><strong>任务五完成！</strong></p>
+<h1 id="_5">练习六  多阶段构建优化</h1>
+<ol>
+<li>准备一个简单的Java应用，保存为HelloWorld.java文件。</li>
+</ol>
+<p><code>java
+   // HelloWorld.java
+   public class HelloWorld {
+       public static void main(String[] args) {
+           System.out.println("Hello, World!");
+       }
+   }</code></p>
+<ol>
+<li>单阶段构建，创建Dockerfile.single文件。</li>
+</ol>
+<p>```dockerfile
+   # 使用完整 JDK 作为基础镜像
+   FROM openjdk:17-jdk-slim</p>
+<p># 设置工作目录
+   WORKDIR /app</p>
+<p># 将源代码复制到容器中
+   COPY HelloWorld.java .</p>
+<p># 编译 Java 源代码
+   RUN javac HelloWorld.java</p>
+<p># 运行应用
+   CMD ["java", "HelloWorld"]
+   ```</p>
+<p>说明：</p>
+<ul>
+<li>
+<p><code>run</code> : 一般表示安装或者编译。</p>
+</li>
+<li>
+<p>多阶段创建，创建Dockerfile.multi文件。</p>
+</li>
+</ul>
+<p>```dockerfile
+   # 第一阶段：使用完整 JDK 编译应用
+   FROM openjdk:17-jdk-slim AS builder</p>
+<p># 设置工作目录
+   WORKDIR /app</p>
+<p># 将源代码复制到容器中
+   COPY HelloWorld.java .</p>
+<p># 编译 Java 源代码
+   RUN javac HelloWorld.java</p>
+<p># 第二阶段：使用轻量级镜像运行应用
+   FROM alpine:latest</p>
+<p># 安装 Java 运行时环境
+   RUN apk add --no-cache openjdk17-jre</p>
+<p># 设置工作目录
+   WORKDIR /app</p>
+<p># 从第一阶段复制编译后的二进制文件
+   COPY --from=builder /app/HelloWorld.class .</p>
+<p># 运行应用
+   CMD ["java", "HelloWorld"]
+   ```</p>
+<p>说明：</p>
+<ul>
+<li>第一阶段：使用完整的JDK来编译应用</li>
+<li>
+<p>第二阶段： 将编译的二进制（<code>.jar</code>文件）复制到轻量级镜像，减少最终镜像的大小</p>
+</li>
+<li>
+<p>构建镜像</p>
+</li>
+</ul>
+<p><code>bash
+   docker build -t java-app-multi -f Dockerfile.multi
+   docker build -t java-app-single -f Dockerfile.single</code></p>
+<p>说明：</p>
+<ul>
+<li><code>-t</code> : 表示为镜像指定名称和标签。</li>
+<li>
+<p><code>-f</code> : 表示用于构建的Dockerfile文件名（因为有两个文件）</p>
+</li>
+<li>
+<p>查看镜像大小 <code>docker images</code></p>
+</li>
+<li>
+<p>对比结果。</p>
+</li>
+</ul>
+<p><strong>任务六完成！</strong></p>
+<h1 id="_6"></h1>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="">
+        
+          <a href="../Java%E9%AB%98%E5%B9%B6%E5%8F%91%E7%A7%92%E6%9D%80%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" title="《Java高并发秒杀项目》" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                《Java高并发秒杀项目》
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../TODO.html" title="TODO" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                TODO
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["navigation.expand", "tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
